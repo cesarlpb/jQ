@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQ</title>
+  <!-- Carga de jQ -->
+  <script src="../dist/jq.js"></script>
+  <!-- Import de styles con preload -->
+  <link rel="preload" href="styles.css" as="style">
+</head>
+<body>
+
+  <h1>jQ</h1>
+
+  <!-- Elementos HTML para ejemplo: -->
+  <div id="miId"></div>
+  <div class="miClase"></div>
+  <div class="miClase"></div>
+
+  <!-- Ejemplo con elementos de ul: -->
+  <ul>
+    <li class="li">Elemento #1</li>
+    <li class="li">Elemento #2</li>
+    <li class="li">Elemento #3</li>
+    <li class="li">Elemento #4</li>
+    <li class="li">Elemento #5</li>
+  </ul>
+
+  <script src="ready.js"></script>
+  <script src="ul.js"></script>
+  <!-- Script antes de cierre de body: -->
+  <script>
+    // Ejemplos de uso de jQ:
+
+    console.group("Ejemplo selecciones:")
+      // Tomar primer elemento de una selección:
+      console.log("primer div:");
+      const primerDiv = $('div').first();
+      console.log(primerDiv);
+      // Tomar el último div de una selección:
+      console.log("último div:");
+      const ultimoDiv = $('div').last();
+      console.log(ultimoDiv);
+      // Comprobar el número de elementos de una selección:
+      console.log("número de elementos:")
+      const divs = $('div');
+      console.log(divs.length); // 2
+    console.groupEnd();
+    
+    // Seleccionar un elemento por ID y cambiar su contenido HTML
+    const elementoPorId = $('#miId');
+    if (elementoPorId) {
+      // Establecer nuevo contenido HTML
+      elementoPorId.html('<p>Nuevo contenido para miId</p>');
+      // Aplicar estilos CSS
+      elementoPorId.css({ color: 'red', fontSize: '20px' });
+      // Añadir una clase al elemento
+      elementoPorId.addClass('test');
+    }
+
+    // Seleccionar elementos por clase y modificar su contenido HTML y clases
+    const elementosPorClase = $('.miClase');
+    if (elementosPorClase) {
+      elementosPorClase.forEach(elemento => {
+        // Establecer contenido HTML
+        elemento.html('Contenido para clase miClase');
+        // Aplicar estilos CSS
+        elemento.css({ color: 'blue' });
+        // Alternar una clase en los elementos
+        elemento.toggleClass('otraClase');
+      });
+    }
+  </script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+        console.log('Service Worker registrado con éxito:', registration.scope);
+      }).catch(function(error) {
+        console.log('Fallo al registrar el Service Worker:', error);
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
