@@ -49,3 +49,4 @@ if (elementosPorClase) {
 - [ ] Evitar tener que seleccionar primer elemento cuando se usa `ready()` para aplicar 
 un estilo en carga de la página.
 - [ ] Listar funcionalidades a crear
+- [ ] otros
