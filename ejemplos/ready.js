@@ -8,3 +8,10 @@ $('body').ready(function(elements) {
       element.css({ textAlign: 'center' });
   });
 });
+
+$('img').ready(e => e[0].css(
+  { 
+    display: 'inline-block', 
+    border: '2px solid blue' 
+  }
+));
